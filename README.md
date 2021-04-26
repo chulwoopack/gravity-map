@@ -5,9 +5,13 @@ This repository contains the implementation of zoning solution based on multimod
 ![fusion_approach](/assets/fusion_approach.png)
 
 ## Gravity-map
-<img src="/assets/gravity_step_1.png" width="250" height="250">
-<img src="/assets/gravity_step_2.png" width="250" height="250">
-<img src="/assets/gravity_step_3.png" width="250" height="250">
+Step 1             |  Step 2 | Step 3     
+:-------------------------:|:-------------------------:|:--------------------------:|
+<img src="/assets/gravity_step_1.png" width="250" height="250">  |  <img src="/assets/gravity_step_2.png" width="250" height="250"> | <img src="/assets/gravity_step_3.png" width="250" height="250">
+
+
+
+
 
 ## Resultant Samples
 ![resultant_sample](/assets/resultant_sample.png)
