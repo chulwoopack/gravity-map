@@ -11,4 +11,4 @@ Step 1: Oversegment image using Voronoi-tesselation |  Step 2: Compute geometric
 
 
 ## Resultant Samples of Zoning
-![resultant_sample](/assets/resultant_sample.png)
+![resultant_sample](/assets/resultant_sample_clean.png)
