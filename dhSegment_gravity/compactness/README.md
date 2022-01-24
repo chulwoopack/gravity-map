@@ -1,56 +1,39 @@
-# Voronoi-based Document Layout Complexity Analysis
-Modified and written by Chulwoo Pack ([cpack@cse.unl.edu](mailto:cpack@cse.unl.edu))
+# Voronoi-based Document Layout Analysis
+This repo contains Voronoi-based Document Layout Analysis code (originally worked by K. Kise and modified by Faisal Shafait). 
 
-This repo contains Efficient Voronoi-based Document Layout Complexity Analysis code (originally worked by K. Kise and modified by Faisal Shafait). 
-
-## Requirements
-The following python packages are required:
-``` python
-cv2   # python-opencv
-json
-numpy
-```
-
-You can install them either simply using [pip](https://pip.pypa.io/en/stable/) or [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) into your system.
+## Installation
+This program requires `libtiff`.
+To install this program, please run `make`. You will find `be` in the current directory if the compilation is successful.
 
 ## How to Use
-
-1. Note that the entire complexity analysis is a two-step process.
-- Execute *be* (c++) to run Voronoi-based page segmentation
-     - in: <input_image_path>
-     - out: spatial information of (1) connected component (*cc.txt*), (2) zones (*line.txt*), and (3) metadata in JSON format (*metadata.json*)
-- Execute *voronoi_docplexity.py* (python) to run connected component & zone analysis.
-     - in: <input_image_path>
-     - out: *voronoi_docplexity_out.json*
-
-
-2. For running this analysis on a batch, please follow the below:
-```bash
-# Set where your input image batch is located
-~$ input_location="PATH/TO/BATCH/LOCATION"
-~$ images=$(find ${input_location} -type f -name "*.jpg")  # You can the image type
-
-# Activate virtual environment if you have one
-source activate <virtenvname>
-
-# Run analysis
-for i in ${images}
-do 
-   # Print currently image being processed
-   echo ${i};
-   # Convert image to binary
-   python binarization_morphological.py ${i};
-   # Convert image type to tiff
-   gm convert ./data/binary/bi_ ./data/binary/bi_tiff;
-   # Run Voronoi Segmentation
-   ./be ./data/binary/bi_.tiff
-   # Run document layout complexity analysis
-   python voronoi_docplexity.py ${i};
-   # Run document layout complexity analysis
-   cat ./data/metadata/metadata >> voronoi_docplexity_out.json
-   ;
-done
+This program requires a single argument is required:
+an input binary image (with sunraster or TIFF format).
+```console
+user@local:~$ ./be <input image>
 ```
+**Note** For more optional arguments (e.g., sampling rate), please simply enter `be`.
+```console
+user@local:~$ ./be
+
+Usage : be <input_file>
+input_file  : a binary doc. image (sun raster or tiff format)
+options : [-<argument> (<data type>)] : <meaning>:<<default value>>
+[-sr (int)]  : sampling rate  :<13>
+[-nm (int)]  : max size (area) of noise CC  :<15>
+[-fr (float)]: threshold setting param. for Td2 :<0.340>
+[-ta (int)]  : threshold value for area ratio :<40>
+[-sw (int)]  : size of smoothing window of distance :<2>
+[-dparam]  : display parameters :<NO>
+[-ddetail] : display detailed outputs :<NO>
+[-djson] : display json format outputs  :<NO>
+```
+Once the program runs successfully, you will find an output file (a list of coordinates of line segments) under `data/linesegments`.
+
+For visualizing the segmentation result, you should run the following:
+```console
+user@local:~$ ./drawing/dl -i <input image> -l <line segment> -o <output file>
+```
+**Note** Similarly as above, for more optional arguments (e.g., line width), please simply enter `dl`.
 
 ## References
 [1] Voronoi page segmentation algorithm:
@@ -66,7 +49,7 @@ done
        Vol.30, No.6, pp.941-954, June 2008
 
 ## Comments, Bug Reports
-Please send them to [cpack@cse.unl.edu](mailto:cpack@cse.unl.edu)
+Please send them to [chulwoo.pack@huskers.unl.edu](mailto:chulwoo.pack@huskers.unl.edu)
 
 ## Note
 

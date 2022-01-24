@@ -11,9 +11,8 @@ namespace voronoi{
     void usage()
     {
         fprintf(stderr,"\nUsage : be ");
-        fprintf(stderr,"<input_file> <output_file> <log_file>\n");
+        fprintf(stderr,"<input_file>\n");
         fprintf(stderr," input_file  : a binary doc. image (sun raster or tiff format)\n");
-        fprintf(stderr," log_file    : log\n");
         fprintf(stderr," options : [-<argument> (<data type>)] : <meaning>:<<default value>>\n");
         fprintf(stderr," [-sr (int)]  : sampling rate                        :<%d>\n",
                 SAMPLE_RATE);

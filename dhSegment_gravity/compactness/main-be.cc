@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
     voronoi_pageseg(&mlineseg,&nlines,&imgd1,&mcc,&nccs,&metadata);
 
     /* Write linesegments */
-    /* 
+    
     // Original
     for(i=0;i<nlines;i++) {
     	if(mlineseg[i].yn == OUTPUT &&
@@ -73,8 +73,8 @@ int main(int argc, char **argv) {
     		    mlineseg[i].ys,mlineseg[i].ye);
     	}
     }
-    */
 
+    /* 
     // For Second paper
     for(i=0;i<nlines;i++) {
       if(mlineseg[i].yn == OUTPUT &&
@@ -99,14 +99,14 @@ int main(int argc, char **argv) {
       }
     }
 
-    /* Write conneted components */
+    // Write conneted components
     for(i=0;i<nccs;i++) {
         fprintf(ofp2,"%d %d\n",
             (mcc[i].x_min+mcc[i].x_max)/2,
             (mcc[i].y_min+mcc[i].y_max)/2);
     }
 
-    /* Build JSON */
+    // Build JSON
     fprintf(ofp3,"{\"width\":\"%d\",\"height\":\"%d\",\"numOfCC\":\"%d\",\"numOfSites\":\"%d\",\"IQR\":\"%.0f\",\"Q1\":\"%.0f\",\"Q3\":\"%.0f\",\"sizeMean\":\"%.0f\",\"sizeStd\":\"%.0f\",\"angleMode\":\"%.1f\",\"td1\":\"%d\",\"td2\":\"%.0f\"}",
                    metadata.width,
                    metadata.height,
@@ -121,6 +121,9 @@ int main(int argc, char **argv) {
                    metadata.td1,
                    metadata.td2
                    );
+
+
+    */
 /*
     printf("METADATA: %s\n",metadata.filename);
     printf("METADATA: %d\n",metadata.width);
