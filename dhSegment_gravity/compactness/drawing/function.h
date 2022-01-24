@@ -21,3 +21,4 @@ void make_map ( unsigned short *, unsigned short *, unsigned short *, int );
 void usage();
 void draw_point( ImageData *, int, int, int, int );
 void draw_line( ImageData *, int, int, int, int, int, int );
+void draw_rect( ImageData *, int, int, int, int, int, int );
