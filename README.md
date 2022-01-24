@@ -1,5 +1,5 @@
 # Visual Domain Knowledge-based Multimodal Zoning for Textual Region Localization in Noisy Historical Document Images
-This repository contains the implementation of zoning solution based on multimodal approach using our novel visual representation, *Gravity-map*. The model predicts textual regions in a set of closed polygons on a document image. The underlying CNN model used in our solution is [dhSegment](https://dhsegment.readthedocs.io/en/latest/).
+This repository contains the implementation of zoning solution based on multimodal approach using our novel visual representation, *Gravity-map*. The model predicts textual regions in a set of closed polygons on a document image. The underlying CNN models used in our solution is [dhSegment](https://dhsegment.readthedocs.io/en/latest/) and [FPN](https://github.com/qubvel/segmentation_models#models-and-backbones).
 
 The detail of this work can be found in the corresponding [paper](https://doi.org/10.1117/1.JEI.30.6.063028).
 
